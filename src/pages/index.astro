@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const services = [
+  { name: "Full Detail Package", description: "Complete interior & exterior transformation", icon: "✨" },
+  { name: "Interior Deep Clean", description: "Thorough cleaning, shampooing & conditioning", icon: "🪑" },
+  { name: "Exterior Polish & Wax", description: "Restore shine and protect your paint", icon: "🚗" },
+  { name: "Headlight Restoration", description: "From foggy to crystal clear", icon: "💡" },
+  { name: "Ceramic Coating", description: "Long-lasting protection & shine", icon: "🛡️" },
+  { name: "Paint Correction", description: "Remove swirls, scratches & imperfections", icon: "🎨" },
+];
+
+const reviews = [
+  { text: "I've had my car detailed once before and thought I was impressed... after coming here I realize they deserve negative stars. The difference is INSANE. Highly recommend!", author: "Kendrah E.", rating: 5 },
+  { text: "Visited this amazing detailing shop and wow! The difference in my headlights is insane! From foggy to crystal clear! Highly recommended for anyone wanting a professional result!", author: "Treshan W.", rating: 5 },
+  { text: "10/10 experience from start to finish! The attention to detail and care they put into my car truly shows. It looks brand new again. The results completely exceeded my expectations.", author: "Alyanna I.", rating: 5 },
+];
+---
+
+<Layout title="Taprobane Detailing | Mississauga's 5-Star Auto Detailing">
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative text-white min-h-[600px] md:min-h-[700px] bg-neutral-900">
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/80 to-neutral-900/40"></div>
+      <div class="relative max-w-6xl mx-auto px-4 py-24 md:py-32">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="flex-1 text-center md:text-left">
+            <div class="inline-flex items-center gap-2 bg-yellow-500/20 text-yellow-300 px-4 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
+              <span>⭐</span>
+              <span>5.0 Rating on Google • 40+ Reviews</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+              Mississauga's 5-Star <span class="text-purple-400">Auto Detailing</span> Experts
+            </h1>
+            <p class="text-xl text-neutral-200 mb-8 max-w-xl drop-shadow">
+              Where every detail matters. Professional-grade detailing that transforms your vehicle inside and out.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a href="tel:+16479174643" class="inline-flex items-center justify-center gap-2 bg-purple-500 hover:bg-purple-600 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg">
+                📞 (647) 917-4643
+              </a>
+              <a href="#services" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg border border-white/20">
+                View Services
+              </a>
+            </div>
+          </div>
+          <div class="flex-shrink-0">
+            <div class="w-48 h-48 md:w-64 md:h-64">
+              <img src={`${base}logo.png`} alt="Taprobane Detailing Logo" class="w-full h-full object-contain rounded-2xl" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-neutral-900">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">About Taprobane Detailing</h2>
+        <p class="text-lg text-neutral-200 leading-relaxed">
+          At Taprobane Detailing, we don't just clean cars—we transform them. Our team of passionate detailing experts brings years of experience and an obsessive attention to detail to every vehicle. Whether you need a quick refresh or a complete restoration, we'll make your car look better than the day you bought it. With a perfect 5-star Google rating and dozens of thrilled customers, we've earned our reputation as Mississauga's go-to detailing destination.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-neutral-950">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Services</h2>
+          <p class="text-lg text-neutral-300">Professional detailing services for every need</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service) => (
+            <div class="bg-neutral-800 rounded-xl p-8 hover:shadow-lg transition-shadow border border-neutral-700">
+              <div class="text-4xl mb-4">{service.icon}</div>
+              <h3 class="text-xl font-semibold text-white mb-2">{service.name}</h3>
+              <p class="text-neutral-300">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-20 bg-gradient-to-br from-purple-900 to-neutral-900 text-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h2>
+          <div class="flex items-center justify-center gap-1 text-yellow-400 text-2xl">★★★★★</div>
+          <p class="text-purple-200 mt-2">5.0 average from Google Reviews</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          {reviews.map((review) => (
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/10">
+              <div class="flex gap-1 text-yellow-400 mb-4">{"★".repeat(review.rating)}</div>
+              <p class="text-neutral-200 mb-6 italic">"{review.text}"</p>
+              <p class="text-white font-semibold">— {review.author}</p>
+              <p class="text-purple-300 text-sm">Google Review</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-neutral-950">
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+          <p class="text-lg text-neutral-300">Ready to transform your vehicle? Contact us today!</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="bg-purple-900/30 p-3 rounded-lg">📞</div>
+              <div>
+                <h3 class="font-semibold text-white">Phone</h3>
+                <a href="tel:+16479174643" class="text-purple-400 hover:underline text-lg">(647) 917-4643</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="bg-purple-900/30 p-3 rounded-lg">📍</div>
+              <div>
+                <h3 class="font-semibold text-white">Location</h3>
+                <p class="text-neutral-300">2576 Haines Rd UNIT C<br />Mississauga, ON L4Y 1Y6</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="bg-purple-900/30 p-3 rounded-lg">🕐</div>
+              <div>
+                <h3 class="font-semibold text-white">Hours</h3>
+                <p class="text-neutral-300">Mon–Sat: 9:00 AM – 6:00 PM<br />Sunday: Closed</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="bg-purple-900/30 p-3 rounded-lg">📸</div>
+              <div>
+                <h3 class="font-semibold text-white">Instagram</h3>
+                <a href="https://instagram.com/taprobanedetailing" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline">@taprobanedetailing</a>
+              </div>
+            </div>
+          </div>
+          <div class="bg-neutral-900 rounded-xl overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.5!2d-79.59!3d43.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3860a3c8e00d%3A0x5e7a0d14d36c1b5a!2s2576%20Haines%20Rd%20Unit%20C%2C%20Mississauga%2C%20ON!5e0!3m2!1sen!2sca!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border: 0; min-height: 300px;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-purple-600">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">Ready to Transform Your Vehicle?</h2>
+        <p class="text-purple-100 mb-8 text-lg">Book your appointment today and experience the Taprobane difference.</p>
+        <a href="tel:+16479174643" class="inline-flex items-center gap-2 bg-white text-purple-600 font-bold px-8 py-4 rounded-lg hover:bg-neutral-100 transition-colors text-lg">
+          📞 Call (647) 917-4643
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-neutral-900 text-neutral-400">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div class="flex items-center gap-3">
+            <img src={`${base}logo.png`} alt="Taprobane Detailing" width="40" height="40" class="rounded-lg" />
+            <span class="text-white font-semibold">Taprobane Detailing</span>
+          </div>
+          <p class="text-sm">© {new Date().getFullYear()} Taprobane Detailing. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+</Layout>
